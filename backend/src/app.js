@@ -3,6 +3,10 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
+import connectDB from './config/db.js';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 connectDB();
@@ -21,6 +25,6 @@ app.use('/storage', express.static(path.join(__dirname, 'storage')));
 
 app.use(express.json());
 
-app.listen((PORT) => {
+app.listen(PORT, () => {
   console.log(`[SERVER] Server running on http://localhost:${PORT}`);
 });

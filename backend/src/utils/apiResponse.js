@@ -1,4 +1,4 @@
-export function successResponse(res, message, data = {}, statusCode = 200) {
+export function successResponse(res, data = null, message = 'Success', statusCode = 200) {
   return res.status(statusCode).json({
     success: true,
     message,
@@ -6,7 +6,7 @@ export function successResponse(res, message, data = {}, statusCode = 200) {
   });
 }
 
-export function errorResponse(res, message, statusCode = 400, errors = null) {
+export function errorResponse(res, message = 'Internal Server Error', statusCode = 500, errors = null) {
   return res.status(statusCode).json({
     success: false,
     message,
